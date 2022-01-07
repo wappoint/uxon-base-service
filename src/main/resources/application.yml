@@ -1,0 +1,46 @@
+server:
+  port: 8000
+spring:
+  datasource:
+    url: jdbc:mysql://rm-wz9c84952j4b4h557no.mysql.rds.aliyuncs.com:3306/pms_manage?characterEncoding=utf8&useSSL=false&autoReconnect=true&serverTimezone=Asia/Shanghai
+    username: test_pmstenant
+    password: test@Youxiang&0817^
+    hikari:
+      pool-name: MyHikariCP
+      connection-test-query: select 1
+      connection-init-sql: select 1
+      connection-timeout: 250
+      minimum-idle: 20
+  boot:
+    admin:
+      client:
+        instance:
+          name: base
+          prefer-ip: true
+          metadata:
+            user.name: "user"
+            user.password: "password"
+        url: http://192.168.1.78:9000
+        username: "user"
+        password: "password"
+        enabled: true
+        auto-registration: true
+  devtools:
+    livereload:
+      port: 30002
+  security:
+    user:
+      name: "user"
+      password: "password"
+  application:
+    name: monitor
+logging:
+  level:
+    org.mybatis: debug
+    uxon.net.base.mapper: debug
+    de.codecentric.boot.admin.client: debug
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: "*"
